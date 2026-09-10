@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
+header {
+  background-color: #958f9e;
+  height: 100vh;
+  color: white;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1,
+header p {
+  width: 75%;
+  max-width: 900px;
+}
+
+header h1 {
+  margin : 10px;
+}
+
+header p {
+  margin : 5px;
+}
+
+header hr {
+  width: 50%;
+  margin: 20px;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-family: Mukta, sans-serif;
+  background-color: #fcfcfc;
+  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Bitter, serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  font-size: xxx-large;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: xx-large;
+  letter-spacing: 0px;
+  text-transform: capitalize;
+}
+
+h4 {
+  font-size: x-large;
+  letter-spacing: 0.25px;
+}
+
+h4 code {
+  font-family: Bitter, serif;
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: large;
+  letter-spacing: 0.25px;
+}
+
+h6 {
+  font-size: medium;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 32px;
+  max-width: 900px;
+}
+
+.timestamp {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-family: Bitter, serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.timestamp span {
+  color: #d83e02;
+}
+
+code {
+  color: #d83e02;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h2 + p {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 40px 0;
+}
+
+.quote {
+  margin-left: 32px;
+  padding-left: 20px;
+  border-left: #d83e02 solid 2px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.quote cite {
+  display: block;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+hr {
+  margin: 50px 0;
+}
+
+footer {
+  background-color: #958f9e;
+}
+    
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  width: 100%;
+  padding: 28px 0;
+  max-width: 900px;
+  text-align: center;
+}
+
+footer ul li {
+  display: inline-block;
+  padding: 0 16px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+footer ul li a:hover {
+  text-decoration: underline 2px white;
+}

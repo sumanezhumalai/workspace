@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: papayawhip;
+}
+
+h1 {
+  text-align: center;
+  font-family: serif;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 6rem;
+}
+
+.hr {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: black;
+  opacity: 0.6;
+  border: none;
+  margin: 0;
+  transform: translateX(-50%);
+  z-index: 1; /* Keeps line behind boxes */
+}
+
+.timeline {
+  position: relative;
+}
+
+.container {
+  /* border: 4px solid black; */
+  width: 1200px;
+  margin: 40px auto;
+  padding: 100px;
+
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  /* align-items: flex-end; */
+  /* align-content: enter; */
+}
+
+.special {
+  align-self: flex-end;
+  order: 0;
+}
+
+/* #veryspecial {
+  order: -1;
+} */
+
+.box {
+  width: 300px;
+  height: 150px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.navbar {
+  background-color: olive;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  margin: 10px 25px;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: 2px underline white;
+  text-underline-offset: 3px;
+}
+
+.navbar-left {
+  background-color: rgb(149, 149, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-right {
+  background-color: rgb(149, 149, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#title {
+  /* margin-right: auto; */
+  text-decoration: none;
+}
+
+/*timeline*/
+.timeline-content {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.timeline-content-right{
+  align-items: flex-start;
+  text-align: left;
+}
+
+.timeline {
+  font-family: Cormorant, monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.timeline-content h3 {
+  font-size: 25px;
+}
+
+.timeline-content p {
+  font-size: 15px;
+  width: 400px;
+
+}
+
+.timeline-highlight {
+  font-weight: 800;
+  text-shadow:
+    #af1620 0px 1px,
+    #ffff4f 0px 2px,
+    #0032cc 0px -1px,
+    #70a39f 0px -2px;
+}
+
+.timeline-institute {
+  font-style: italic;
+  font-size: 20px;
+}
+
+.timeline-mentions {
+  font-size: 68px;
+}
+
+.timeline-duration {
+  font-style: italic;
+  word-spacing: -4px;
+  text-transform: uppercase;
+}
+
+.session-title {
+  font-family: Montserrat, sans-serif, Arial;
+  font-size: 30px;
+  font-style: italic;
+  opacity: 60%;
+}
+
+.container li {
+  list-style: none;
+}

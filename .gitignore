@@ -1,26 +1,15 @@
 # ===========================================
 # OS
 # ===========================================
-desktop.ini
 .DS_Store
 Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
 
 # ===========================================
-# Compiled binaries & executables
-# ===========================================
-.clangd/
-*.exe
-*.dll
-*.so
-*.dylib
-*.o
-*.obj
-*.lib
-*.a
-*.class
-
-# ===========================================
-# .NET / C#  (dotnet build output & VS cache)
+# C# / .NET
 # ===========================================
 bin/
 obj/
@@ -33,22 +22,71 @@ obj/
 *.nuspec
 *.nupkg
 *.sln.ide/
+*.suo
+*.cache
+*.dll.config
+
+# VS / VS Code / JetBrains
 .vs/
 .vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
 
 # ===========================================
-# JavaScript / TypeScript  (npm / yarn / bun)
+# Java / Maven / Gradle
+# ===========================================
+target/
+build/
+*.jar
+*.war
+*.ear
+*.iml
+*.class
+pom.xml.tag
+pom.xml.releaseBackup
+release.properties/
+
+# Eclipse / STS
+.settings/
+.classpath
+.project
+.metadata/
+.cproject
+*.launch
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+
+# NetBeans
+nbproject/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# ===========================================
+# JavaScript / TypeScript
 # ===========================================
 node_modules/
 dist/
 dist-ssr/
 coverage/
 .nyc_output/
+.eslintcache
+*.tsbuildinfo
+
+# npm / yarn / pnpm
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-*.log
+.pnpm-store/
+
+# Vite / Webpack
+.vite/
+.cache/
 
 # ===========================================
 # Python
@@ -61,50 +99,52 @@ __pycache__/
 *.egg-info/
 *.egg
 .eggs/
-dist/
 build/
 venv/
 .venv/
 .env/
-
-# ===========================================
-# Java
-# ===========================================
-target/
-build/
-*.jar
-*.war
-*.ear
-*.iml
-
-# Eclipse IDE metadata
-.settings/
-.classpath
-.project
-.metadata/
-.cproject
-*.launch
-
-# Maven
-pom.xml.tag
-pom.xml.releaseBackup
-release.properties/
+pip-log.txt
+pip-delete-this-directory.txt
 
 # ===========================================
 # Rust
 # ===========================================
+Cargo.lock
+**/*.rs.bk
 target/
 
 # ===========================================
-# C
+# C / C++
 # ===========================================
-*.exe
 *.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.exe
+*.out
+*.app
 
 # ===========================================
-# JetBrains IDE (general)
+# Environment / Secrets
 # ===========================================
-.idea/
-*.swp
-*.swo
-*~
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ===========================================
+# Logs
+# ===========================================
+*.log
+logs/
+
+# ===========================================
+# Misc
+# ===========================================
+*.tmp
+*.bak
+*.orig
