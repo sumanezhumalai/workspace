@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="positioning-transforms-gradients.css" />
+    <title>CSS Positioning, Transforms & Gradients Practice</title>
+  </head>
+  <body>
+    <!-- ============================================
+         SECTION 1: BUTTON WITH NOTIFICATION BADGE
+         ============================================
+         Demonstrates:
+         - Relative positioning on parent (.msg-btn)
+         - Absolute positioning on child (.msg-count)
+         - Transform hover effects (translateY, scale)
+         - Proper z-index layering
+         ============================================ -->
+    <section class="button-section">
+      <a href="#" class="msg-btn" id="view">Message View <span class="msg-count">3</span></a>
+      <a href="#" class="msg-btn" id="send">Message Send <span class="msg-count">1</span></a>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: GRADIENT & TRANSFORM BOXES
+         ============================================
+         Demonstrates different gradient types:
+         - Linear gradient (box-1)
+         - Radial gradient (box-5)
+         - Conic gradient (box-6)
+         - Repeating linear gradient (box-7)
+         
+         Plus 3D rotation transforms with various origins
+         ============================================ -->
+    <section>
+      <div class="empty-box box-1"></div>
+      <div class="empty-box box-5"></div>
+      <div class="empty-box box-6"></div>
+      <div class="empty-box box-7"></div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+/* ============================================
+   CSS BACKGROUNDS, FILTERS & GRADIENTS
+   ============================================
+   
+   Topics Covered:
+   1. CSS Gradients (linear, radial, conic, repeating)
+   2. Background images (url, repeat, size, position)
+   3. CSS Filters (blur, grayscale, contrast, hue-rotate)
+   4. Background-clip property
+   5. Background layering techniques
+   
+   Key Concepts:
+   - background-image can contain both images and gradients
+   - background-size: cover scales to cover entire element
+   - background-position controls image placement
+   - Filters apply visual effects without altering the DOM
+   - background-clip defines the painting area
+   ============================================ */
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+body {
+  margin: 32px;
+}
+
+.empty-box {
+  border: 4px solid rgb(211, 125, 153);
+  margin: 20px;
+}
+
+/* ============================================
+   BOX 1: LINEAR GRADIENT
+   ============================================
+   - linear-gradient(direction, color1, color2, ...)
+   - Direction can be: to right, to bottom, 45deg, etc.
+   - Creates smooth color transitions
+   - No external image files needed
+   ============================================ */
+
+.box-1 {
+  width: 300px;
+  height: 300px;
+  background-image: linear-gradient(to right, papayawhip, olive);
+
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* ============================================
+   BOX 2: BACKGROUND IMAGE WITH COLOR
+   ============================================
+   - url() loads external image files
+   - background-repeat: no-repeat prevents tiling
+   - background-color shows through transparent areas
+   - Layering: image appears on top of color
+   ============================================ */
+
+.box-2 {
+  width: 300px;
+  height: 300px;
+  background-image: url(images/peacock.png);
+  background-repeat: no-repeat;
+  background-color: cadetblue;
+
+  display: inline-block;
+}
+
+/* ============================================
+   BOX 3: BACKGROUND SIZING + CSS FILTERS
+   ============================================
+   Background Properties:
+   - background-size: cover - scales image to cover box 
+     (maintains aspect ratio, may crop)
+   - background-position: center - centers the image
+   
+   CSS Filters (uncomment to test):
+   - blur(2px): Applies Gaussian blur
+   - grayscale(): Converts to black & white (0-1 or 0%-100%)
+   - contrast(1.5): Adjusts contrast (>1 increases, <1 decreases)
+   - hue-rotate(20deg): Shifts colors around color wheel
+   
+   Note: Multiple filters can be chained: filter: blur(2px) contrast(1.2);
+   ============================================ */
+
+.box-3 {
+  width: 700px;
+  height: 500px;
+  background-image: url(images/people.jpg);
+
+  background-size: cover;
+  background-position: center;
+
+  /* CSS Filter Examples - uncomment to try */
+  /* filter: blur(2px); */
+  /* filter: grayscale() ; */
+  filter: contrast(1.5);
+  /* filter: hue-rotate(20deg); */
+
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* ============================================
+   BOX 4: BACKGROUND-CLIP PROPERTY
+   ============================================
+   background-clip defines where background is painted:
+   - border-box (default): extends into border area
+   - padding-box: stops at padding edge (excludes border)
+   - content-box: only within content area (excludes padding & border)
+   
+   background-position: 100% aligns image to right edge
+   
+   Note: There's a typo "content-boxs" - should be "content-box"
+   This demonstrates how typos can cause unexpected behavior!
+   ============================================ */
+
+.box-4 {
+  width: 400px;
+  height: 400px;
+  border: 15px dashed rgb(229, 145, 173);
+  background-image: url(images/woman.jpg);
+
+  background-size: cover;
+  background-position: 100%;
+  padding: 20px;
+  background-clip: content-boxs; /* Typo preserved from original practice */
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* ============================================
+   BOX 5: RADIAL GRADIENT
+   ============================================
+   radial-gradient(shape at position, color stops...)
+   
+   - Shape: circle or ellipse (default)
+   - Position: at top, at center, at bottom right, etc.
+   - Color stops: color + optional position (%, px)
+   - 30% = color reaches 30% from center
+   - 95% = color reaches 95% from center
+   
+   Creates circular/elliptical gradients radiating from a point
+   ============================================ */
+
+.box-5 {
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(
+    circle at top,
+    rgb(176, 200, 249) 30%,
+    rgb(99, 119, 188),
+    rgb(9, 28, 75) 95%
+  );
+
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* ============================================
+   BOX 6: CONIC GRADIENT
+   ============================================
+   conic-gradient creates a circular sweep around center
+   
+   - Rotates around center point (like pie chart)
+   - Color stops represent angles (0deg-360deg or 0%-100%)
+   - 98% means second color dominates most of the circle
+   - Useful for: pie charts, loading spinners, color wheels
+   
+   Similar to radial but rotates instead of radiating
+   ============================================ */
+
+.box-6 {
+  width: 300px;
+  height: 300px;
+  background-image: conic-gradient(rgb(247, 246, 244), rgb(71, 71, 68) 98%);
+
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* ============================================
+   BOX 7: REPEATING LINEAR GRADIENT
+   ============================================
+   repeating-linear-gradient creates striped patterns
+   
+   - 45deg: diagonal direction
+   - Percentage determines stripe width
+   - 10% = pattern repeats every 10% of container
+   - Lower % = more, thinner stripes
+   - Higher % = fewer, wider stripes
+   
+   Perfect for: stripes, progress bars, backgrounds
+   Note: Regular linear-gradient only transitions once
+   ============================================ */
+
+.box-7 {
+  width: 300px;
+  height: 300px;
+  background-image: repeating-linear-gradient(45deg,rgb(70, 70, 212),rgb(213, 71, 71) 10%); 
+  /* percentage determines the repeats */
+  display: inline-block;
+  overflow: hidden;
+}

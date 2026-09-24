@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="grid-responsive-portfolio.css" />
+    <script src="script.js" defer></script>
+    <title>CSS Grid Responsive Portfolio Practice</title>
+  </head>
+
+  <body>
+    <!-- ============================================
+         HEADER WITH RESPONSIVE NAVIGATION
+         ============================================
+         Desktop: Full navigation with social icons
+         Tablet (1100px): Same as desktop
+         Mobile (780px): Hamburger menu + drawer navigation
+         ============================================ -->
+    <header>
+      <div class="author">
+        <h1>Patrick Star</h1>
+        <p class="badge">3D Artist</p>
+      </div>
+
+      <nav>
+        <a class="links" href="#">Work</a>
+        <a class="links" href="#">Contact</a>
+        <a href="#"><img src="images/dribble_icon.png" /></a>
+        <a href="#"><img src="images/insta_icon.png" /></a>
+        <a href="#"><img src="images/v_icon.png" /></a>
+      </nav>
+      <div class="hamburger">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+      </div>
+    </header>
+
+    <!-- ============================================
+         MOBILE NAVIGATION DRAWER
+         ============================================
+         Hidden off-screen by default
+         Slides in when hamburger is clicked
+         JavaScript in script.js handles toggle
+         ============================================ -->
+    <div class="mobilenav">
+      <a class="links" href="#">Work</a>
+      <a class="links" href="#">Contact</a>
+      <a href="#"><img src="images/dribble_icon.png" /></a>
+      <a href="#"><img src="images/insta_icon.png" /></a>
+      <a href="#"><img src="images/v_icon.png" /></a>
+    </div>
+
+    <!-- ============================================
+         MAIN GRID - PORTFOLIO IMAGES
+         ============================================
+         Uses grid-template-areas for layout
+         - Each image assigned to named grid area
+         - Hover reveals "View Project" overlay
+         - Responsive: Changes to 2-column on tablet/mobile
+         
+         Grid Areas:
+         eth, alphabet, traveler, cube, astro,
+         cup, insta, foam, dimensional
+         ============================================ -->
+    <main class="picture-grid">
+      <div class="picture" id="eth">
+        <img class="image" src="images/eth.avif" alt="Ethereum" />
+        <p class="overlay">View Project</p>
+      </div>
+      <div class="picture" id="alphabet">
+        <img class="image" src="images/alphabet.avif" alt="Ethereum" />
+        <p class="overlay">View Project</p>
+      </div>
+      <div class="picture" id="cube">
+        <img class="image" src="images/cube.avif" alt="Ethereum" />
+        <p class="overlay white">View Project</p>
+      </div>
+      <div class="picture" id="astro">
+        <img class="image" src="images/astro.avif" alt="Ethereum" />
+        <p class="overlay white">View Project</p>
+      </div>
+      <div class="picture" id="traveler">
+        <img class="image" src="images/traveler.avif" alt="Ethereum" />
+        <p class="overlay">View Project</p>
+      </div>
+      <div class="picture" id="cup">
+        <img class="image" src="images/cup.avif" alt="Ethereum" />
+        <p class="overlay">View Project</p>
+      </div>
+      <div class="picture" id="insta">
+        <img class="image" src="images/insta.avif" alt="Ethereum" />
+        <p class="overlay white">View Project</p>
+      </div>
+      <div class="picture" id="foam">
+        <img class="image" src="images/foam.avif" alt="Ethereum" />
+        <p class="overlay white">View Project</p>
+      </div>
+      <div class="picture" id="dimensional">
+        <img class="image" src="images/dimensional.avif" alt="Ethereum" />
+        <p class="overlay white">View Project</p>
+      </div>
+    </main>
+    <footer class="declaration">
+      <p>Designed and built by Patrick Star in Wildest Dream.</p>
+    </footer>
+  </body>
+</html>

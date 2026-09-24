@@ -1,0 +1,223 @@
+/* ============================================
+   CSS POSITIONING & TRANSFORM PRACTICE
+   ============================================
+   
+   Topics Covered:
+   1. CSS Position: absolute, relative, z-index
+   2. Transform properties: translateY, scale, rotate3d
+   3. Transitions for smooth animations
+   4. Radial and linear gradients
+   5. Conic and repeating gradients
+   6. Box shadow effects
+   
+   Key Concepts:
+   - position: relative creates a positioning context for absolute children
+   - position: absolute removes element from document flow
+   - z-index only works on positioned elements (not static)
+   - transform doesn't affect document flow
+   - transform-origin changes the pivot point for transformations
+   ============================================ */
+
+/* ============================================
+   GLOBAL STYLES & BACKGROUND GRADIENTS
+   ============================================ */
+
+body {
+  background: radial-gradient(rgba(128, 128, 0, 0.7) 65%, olive);
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================
+   BUTTON SECTION - FLEXBOX CENTERING
+   ============================================ */
+
+.button-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   BUTTON STYLING WITH RELATIVE POSITIONING
+   ============================================
+   Key Concept: position: relative creates a positioning 
+   context for the absolutely positioned badge (.msg-count)
+   z-index: 1 ensures button is below the badge (z-index: 2)
+   ============================================ */
+
+.msg-btn {
+  font-size: large;
+  margin: 25px;
+  border: 2px solid olive;
+  border-radius: 6px;
+  padding: 20px 40px;
+  box-shadow: 2px 4px 8px rgba(70, 70, 69, 0.622);
+
+  color: olive;
+  background-color: rgb(215, 225, 184);
+  text-decoration: none;
+
+  /* Positioning context for child badge */
+  position: relative;
+  z-index: 1;
+
+  /* Smooth hover transitions */
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+/* ============================================
+   TRANSFORM HOVER EFFECTS
+   ============================================
+   Different transform effects for visual feedback:
+   - translateY: Lifts button upward (negative = up)
+   - scale: Makes button slightly smaller (< 1)
+   Both create different user interaction feels
+   ============================================ */
+
+#view:hover {
+  transform: translateY(-4px);
+  box-shadow: 3px 6px 14px rgba(41, 41, 41, 0.622);
+}
+
+#send:hover {
+  transform: scale(0.95);
+  box-shadow: 0px   2px 4px rgba(40, 40, 39, 0.622);
+}
+
+/* ============================================
+   NOTIFICATION BADGE - ABSOLUTE POSITIONING
+   ============================================
+   Key Concepts:
+   - position: absolute positions relative to nearest 
+     positioned ancestor (.msg-btn with position: relative)
+   - top/right with negative values position outside parent
+   - border-radius: 50% creates perfect circle
+   - z-index: 2 places badge above button (button has z-index: 1)
+   - inherit keyword takes values from parent element
+   ============================================ */
+
+.msg-count {
+  border: 2px solid olive;
+  background-color: inherit;
+  color: inherit;
+  border-color: inherit;
+  padding: 5px 10px;
+  border-radius: 50%;
+
+  /* Absolute positioning relative to .msg-btn parent */
+  position: absolute;
+  top: -14px;    /* Negative values move outside parent */
+  right: -14px;
+  z-index: 2;    /* Above button layer */
+}
+
+/* ============================================
+   GRADIENT & TRANSFORM PRACTICE BOXES
+   ============================================
+   Demonstrates various CSS gradient types and 
+   3D transform properties
+   ============================================ */
+
+body {
+  margin: 32px;
+}
+
+.empty-box {
+  border: 4px solid rgb(211, 125, 153);
+  margin: 20px;
+}
+
+/* ============================================
+   BOX 1: LINEAR GRADIENT + 3D ROTATION
+   ============================================
+   - linear-gradient(direction, color1, color2)
+   - rotate3d(x, y, z, angle) rotates around 3D axis vector
+   - Values (6, 12, 24) create diagonal rotation axis
+   ============================================ */
+
+.box-1 {
+  width: 300px;
+  height: 300px;
+  background-image: linear-gradient(to right, papayawhip, olive);
+
+  display: inline-block;
+  overflow: hidden;
+
+  box-shadow: 4px 6px 10px grey;
+  transform: rotate3d(6, 12, 24, 30deg); /* 3D rotation transform */
+}
+
+/* ============================================
+   BOX 5: RADIAL GRADIENT + TRANSFORM-ORIGIN
+   ============================================
+   - radial-gradient(shape at position, color stops...)
+   - circle at top: circular gradient starting from top
+   - Percentages control color stop positions
+   - transform-origin: changes the pivot point for rotation
+   ============================================ */
+
+.box-5 {
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(
+    circle at top,
+    rgb(176, 200, 249) 30%,
+    rgb(99, 119, 188),
+    rgb(9, 28, 75) 95%
+  );
+
+  display: inline-block;
+  overflow: hidden;
+
+  transform-origin: bottom right; /* Pivot point for rotation */
+  transform: rotate3d(6, 12, 24, 30deg);
+}
+
+/* ============================================
+   BOX 6: CONIC GRADIENT
+   ============================================
+   - conic-gradient: creates circular sweep (like pie chart)
+   - Rotates around center point (default)
+   - Color stops work like clock positions (0-360deg or %)
+   ============================================ */
+
+.box-6 {
+  width: 300px;
+  height: 300px;
+  background-image: conic-gradient(rgb(247, 246, 244), rgb(71, 71, 68) 98%);
+
+  display: inline-block;
+  overflow: hidden;
+
+  transform-origin: bottom left;
+  transform: rotate3d(6, 12, 24, 30deg);
+}
+
+/* ============================================
+   BOX 7: REPEATING LINEAR GRADIENT
+   ============================================
+   - repeating-linear-gradient: creates striped pattern
+   - Angle (45deg) creates diagonal stripes
+   - Percentage determines width of each stripe repeat
+   - Lower percentage = more, thinner stripes
+   ============================================ */
+
+.box-7 {
+  width: 300px;
+  height: 300px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgb(70, 70, 212),
+    rgb(213, 71, 71) 10%
+  );
+  /* percentage determines the repeats */
+  display: inline-block;
+  overflow: hidden;
+
+  transform-origin: top right;
+  transform: rotate3d(6, 12, 24, 30deg);
+}

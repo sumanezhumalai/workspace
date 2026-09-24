@@ -1,0 +1,79 @@
+body {
+  background-color: antiquewhite;
+}
+
+.container {
+  /* height: 700px; */
+  width: 90%;
+  margin: 200px auto;
+  background-color: rgb(34, 32, 32);
+  box-shadow: -4 6px 20px rgb(0 0 0 / 0.2);
+
+  /* grid practice */
+
+  display: grid;
+  /* grid-auto-flow: column dense; /*here dense autofulls any ealier emoty spaces in grid * / */
+  /* grid-template-columns: minmax(600px, 700px) minmax(200px, 400px); */
+  /* grid-template-rows: minmax(200px, 500px); */
+  /* grid-template-columns: repeat(4, 1fr 2fr); */
+  /* grid-template-columns: fit-content(300px) fit-content(500px) fit-content(
+      300px
+    ); */
+  /* column-gap: 16px;
+  row-gap: 16px; */
+
+  /* grid-template: repeat(4, 1fr) / repeat(4, 1fr);*/
+  grid-template: repeat(auto-fit, 200px) / repeat(auto-fill, 200px); /*  here auto-fill scales as per screen pr viewportsize */
+  /* grid-gap: 10px; */
+  grid-auto-rows: 200px;
+  grid-auto-columns: 200px;
+
+  /* grid-template-columns: [col1-start] 1fr [col1-end col2-start] 1fr [ col2-end col3-start] 1fr [col3-end col4-start];
+  grid-template-rows: [row1-start] 1fr [row1-end row2-start] 1fr [row2-end row3-start]; */
+
+  /* grid-template-areas:
+    ". a c"
+    "b b c"
+    "b b ."; */
+}
+
+.box {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.first {
+  /* grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2; */
+  /* grid-area: a; */
+}
+
+.second {
+  /* grid-column-start: col2-start;
+  grid-column-end: col3-end;
+  grid-row-start: row1-start;
+  grid-row-end: row1-end; */
+  /* grid-area: b; */
+}
+
+.third {
+  /* shorthands - start/end  */
+  /* grid-column: 3 / span 2;
+  grid-row: 1 / span 2; 
+  shorthands - row-start/ cil-start /  row-end / col-end 
+  /* grid-area: 1/3/3/4; */
+  /* grid-area: c; */
+}
+
+/* 
+Concepts
+
+  grid-template-columns
+  grid-template-rows
+  grid-template
+  minmax()
+  repeat()
+  fit-content() */

@@ -1,0 +1,443 @@
+/* ============================================
+   CSS GRID LAYOUT & RESPONSIVE DESIGN
+   ============================================
+   
+   Topics Covered:
+   1. CSS Grid with grid-template-areas
+   2. Responsive design with media queries
+   3. Hamburger menu animation with @keyframes
+   4. Mobile navigation drawer pattern
+   5. Image overlays with hover effects
+   6. Fixed positioning for mobile header
+   
+   Key Concepts:
+   - grid-template-areas: Named grid regions (semantic layout)
+   - Media queries: Breakpoints at 1100px, 780px
+   - Transform for smooth animations
+   - Pseudo-classes (:hover, :active) for interactions
+   - z-index for layering (mobile nav, header, content)
+   ============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+body {
+  margin: 0 5%;
+  font-family: Poppins, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.author h1 {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.author p {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: small;
+  font-weight: bold;
+}
+
+header .badge {
+  padding: 3px 6px;
+  border-radius: 10px;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav .links {
+  text-decoration: none;
+  padding-bottom: 3px;
+  color: inherit;
+}
+
+nav a img {
+  width: 20px;
+}
+
+.hamburger {
+  display: none;
+  height: auto;
+  width: 36px;
+}
+
+.bar {
+  display: inline;
+  background-color: rgb(16, 16, 16);
+  height: 4px;
+  width: 36px;
+  margin: 4px 0;
+  border-radius: 10px;
+}
+
+/* ============================================
+   MOBILE NAVIGATION DRAWER
+   ============================================
+   Pattern: Off-canvas navigation drawer
+   - Initially hidden off-screen (translateX(120px))
+   - position: fixed keeps it on screen during scroll
+   - z-index: 2 places above content but below header
+   - Slides in when .openDrawer class is added
+   
+   JavaScript toggles the .openDrawer class
+   ============================================ */
+
+.mobilenav {
+  width: 100px;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+
+  transform: translateX(120px); /* Hidden off-screen */
+  transition: transform 0.7s;
+}
+
+.mobilenav img {
+  width: 22px;
+}
+
+.mobilenav a {
+  margin: 16px 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mobilenav a:hover,
+nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ============================================
+   MOBILE DRAWER OPEN STATE
+   ============================================
+   JavaScript adds this class to slide drawer into view
+   translateX(-1px) brings it on-screen
+   ============================================ */
+
+.openDrawer {
+  transform: translateX(-1px); /* Visible on screen */
+}
+
+/* ============================================
+   MAIN GRID LAYOUT - NAMED AREAS
+   ============================================
+   grid-template-areas: Defines layout with names
+   - Each string is a row
+   - Repeated names span multiple cells
+   - "eth eth alphabet" = eth takes 2 columns, alphabet takes 1
+   - This creates an asymmetric, magazine-style layout
+   
+   Benefits of named areas:
+   - Semantic (readable layout definition)
+   - Easy to modify structure
+   - Visual representation in code
+   ============================================ */
+
+.picture-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    "eth eth alphabet"
+    "eth eth traveler"
+    "cube astro traveler"
+    "cup insta insta"
+    "cup insta insta"
+    "foam foam dimensional"
+    "foam foam dimensional";
+}
+
+/* ============================================
+   GRID ITEMS - IMAGE CONTAINERS
+   ============================================ */
+
+.picture {
+  position: relative; /* Positioning context for overlay */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintains aspect ratio, fills container */
+}
+
+/* ============================================
+   IMAGE OVERLAY - HOVER EFFECT
+   ============================================
+   Pattern: Overlay appears on hover
+   - Absolutely positioned over image
+   - opacity: 0 hides it initially
+   - opacity: 0.9 on hover reveals it
+   - Semi-transparent background for readability
+   ============================================ */
+
+.picture .overlay {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: x-large;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  opacity: 0;
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.2s ease;
+}
+
+.overlay:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.overlay.white {
+  color: white;
+}
+
+#eth {
+  grid-area: eth;
+}
+
+#alphabet {
+  grid-area: alphabet;
+}
+
+#traveler {
+  grid-area: traveler;
+}
+
+#cube {
+  grid-area: cube;
+}
+
+#astro {
+  grid-area: astro;
+}
+
+#cup {
+  grid-area: cup;
+}
+
+#insta {
+  grid-area: insta;
+}
+
+#foam {
+  grid-area: foam;
+}
+
+#dimensional {
+  grid-area: dimensional;
+}
+
+.declaration {
+  padding: 25px 0;
+  text-align: center;
+  font-size: medium;
+}
+
+/* ============================================
+   MEDIA QUERIES - RESPONSIVE BREAKPOINTS
+   ============================================
+   Breakpoint 1: 1100px (Tablet landscape)
+   - Maintains desktop nav
+   - Adjusts grid to 2-column layout
+   - Hides mobile navigation
+   ============================================ */
+
+@media only screen and (max-width: 1100px) {
+  body {
+    margin: 0 3%;
+  }
+
+  nav {
+    width: 45%;
+  }
+
+  .mobilenav {
+    display: none;
+  }
+
+  .picture-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas:
+      "eth eth "
+      "alphabet traveler"
+      "cube astro"
+      "cube astro"
+      "insta insta"
+      "cup foam"
+      "dimensional dimensional";
+  }
+}
+/* ============================================
+   Breakpoint 2: 780px (Mobile)
+   - Shows hamburger menu
+   - Hides desktop nav
+   - Fixed header with position: fixed
+   - Activates mobile drawer navigation
+   - Further simplified grid layout
+   ============================================ */
+
+@media only screen and (max-width: 780px) {
+  header {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 5%;
+
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+  }
+
+  .picture-grid {
+    margin-top: 60px;
+  }
+
+  .author h1 {
+    font-size: x-large;
+  }
+  .author p {
+    font-size: 10px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .mobilenav {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .picture-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas:
+      "eth eth "
+      "alphabet traveler"
+      "cube astro"
+      "cube astro"
+      "insta insta"
+      "cup cup"
+      "foam foam"
+      "dimensional dimensional";
+  }
+
+  .picture .overlay {
+    font-size: 20px;
+  }
+
+  .declaration {
+    padding: 18px 0;
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   HAMBURGER MENU ANIMATION
+   ============================================
+   JavaScript adds .active class to trigger animations
+   - bar1: Rotates 45deg and translates (top bar of X)
+   - bar2: Fades out and scales to 0 (middle bar)
+   - bar3: Rotates -45deg and translates (bottom bar of X)
+   
+   Result: Three bars transform into an X symbol
+   forwards: Maintains final animation state
+   ============================================ */
+
+.hamburger.active .bar1 {
+  animation: rotateX 0.3s forwards;
+}
+.hamburger.active .bar2 {
+  animation: fadeBar 0.3s forwards;
+}
+.hamburger.active .bar3 {
+  animation: rotateY 0.3s forwards;
+}
+
+/* ============================================
+   ANIMATION KEYFRAMES
+   ============================================ */
+
+/* Middle bar fades out */
+@keyframes fadeBar {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+/* Top bar rotates to form top of X */
+@keyframes rotateX {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+}
+
+/* Bottom bar rotates to form bottom of X */
+@keyframes rotateY {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+}

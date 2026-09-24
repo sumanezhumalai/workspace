@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="flexbox-timeline-navbar.css" />
+    <title>Flexbox Timeline & Navbar Practice</title>
+  </head>
+  <body>
+    <!-- ============================================
+         NAVBAR SECTION
+         ============================================
+         Demonstrates horizontal flexbox layout with:
+         - justify-content: space-between
+         - Nested flex containers (navbar-left, navbar-right)
+         - Link styling and hover effects
+         ============================================ -->
+    <header class="navbar">
+      <nav class="navbar-left">
+        <a href="#" id="title"><em>Practice</em></a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <nav class="navbar-right">
+        <a href="#">Search</a>
+        <a href="#">Sigup</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Flexbox</h1>
+
+      <!-- ============================================
+           TIMELINE SECTION
+           ============================================
+           Demonstrates:
+           - Vertical flexbox layout (flex-direction: column)
+           - align-self for alternating timeline items
+           - Centered vertical line with absolute positioning
+           - Order property for visual reordering (commented)
+           
+           Timeline Pattern:
+           - .timeline-item (default): left-aligned content
+           - .timeline-item.special: right-aligned content
+           - Creates zigzag pattern down the page
+           ============================================ -->
+      <div class="timeline">
+        <hr class="hr" />
+
+        <!-- Example of colored boxes (commented for reference) -->
+        <!-- <div class="container">
+          <div class="box" style="background-color: #ff5722">1</div>
+          <div class="box special" style="background-color: #ff9800">2</div>
+          <div class="box" style="background-color: #ffc107">3</div>
+          <div
+            class="box special"
+            id="veryspecial"
+            style="background-color: #ffeb3b"
+          >
+            4
+          </div>
+          <div class="box" style="background-color: #cddc39">5</div>
+          <div class="box special" style="background-color: #8bc34a">6</div>
+        </div> -->
+        
+        <!-- Timeline Content Items -->
+        <ul class="container">
+          <li class="timeline-item">
+            <article class="timeline-content">
+              <h3>
+                Free Lancer & <span class="timeline-highlight">Learner</span>
+              </h3>
+              <span class="timeline-institute">Suman Ezhuamali - Self</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                consequuntur, repellendus qui hic est odit esse optio commodi,
+                inventore error velit distinctio enim perferendis sequi vitae
+                sapiente itaque quo nihil.
+              </p>
+              <span class="timeline-duration">Current</span>
+            </article>
+          </li>
+
+          <li class="timeline-item special">
+            <article class="timeline-content timeline-content-right">
+              <h3>
+                Network & IT Support
+                <span class="timeline-highlight">Intern</span>
+              </h3>
+              <span class="timeline-institute">
+                Integra Software Services Pvt. Ltd.
+              </span>
+              <p>
+                Worked on networking support, system troubleshooting, automation
+                tasks, and web development-related activities. Gained practical
+                exposure to enterprise workflows, technical support processes,
+                and collaborative development environments.
+              </p>
+              <span class="timeline-duration">Jan 2025 – Feb 2025</span>
+            </article>
+          </li>
+
+          <li class="timeline-item">
+            <article class="timeline-content">
+              <h3>
+                Computer Science and Business Systems
+                <span class="timeline-highlight">B-Tech</span>
+              </h3>
+              <span class="timeline-institute">
+                Sri Manakula Vinayagar Engineering College <br />
+                (Pondicherry University)
+              </span>
+              <p class="timeline-mentions">
+                CGPA: 9.0 / 10 | Year of Passing: 2026
+              </p>
+              <span class="timeline-duration">Oct 2022 – Apr 2026</span>
+            </article>
+          </li>
+
+          <li class="timeline-item special">
+            <article class="timeline-content timeline-content-right">
+              <h3>
+                Higher Secondary Certificate
+                <span class="timeline-highlight">HSC</span>
+              </h3>
+              <span class="timeline-institute">
+                Amalorpavam Higher Secondary School <br />(Tamil Nadu State
+                Board)
+              </span>
+              <p class="timeline-mentions">
+                Marks: 528 / 600 (88%) | Year of Passing: 2022
+              </p>
+              <span class="timeline-duration">Jun 2020 – May 2022</span>
+            </article>
+          </li>
+
+          <li class="timeline-item">
+            <article class="timeline-content">
+              <h3>
+                Secondary School Leaving Certificate
+                <span class="timeline-highlight">SSLC</span>
+              </h3>
+              <span class="timeline-institute">
+                Amalorpavam Higher Secondary School <br />
+                (Tamil Nadu State Board)
+              </span>
+              <p class="timeline-mentions">
+                Marks: 439 / 500 (87.8%) | Year of Passing: 2020
+              </p>
+              <span class="timeline-duration">Jun 2019 – Mar 2020</span>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

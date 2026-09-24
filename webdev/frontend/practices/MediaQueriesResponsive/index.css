@@ -1,0 +1,111 @@
+body {
+  background-color: papayawhip;
+}
+
+h1 {
+  margin: 0px;
+  font-size: 3rem;
+}
+
+/* /* @media only screen and (max-width: 1200px) {
+  h1 {
+    font-size: 3rem;
+  }
+} */
+
+/* @media not (max-width: 300px) {
+  h1 {
+    font-size: 1rem;
+  }
+} */
+
+/* @media (max-height: 200px) or (min-height: 600px) {
+  h1 {
+    font-size: 1rem;
+  }
+} */
+
+/*  
+only -> in case of older hardware dint apply these styles  (prevents loading)   //logical operator
+screens -> not in print view or image view screens (only browser screens)
+and -> here used to combine two property/constraints - screen + max-width , which occurs in single line  //logical operator
+likewise - or , and and not are logical too
+*/
+
+/* @media only screen and (orientation: landscape) {
+  h1::before {
+    content: "Desktop size";
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  h1::before {
+    content: "phone size";
+  }
+} */
+
+.navbar {
+  display: flex;
+  margin: 0 0 32px 0;
+  padding: 0 40px;
+  background-color: olive;
+  color: rgb(244, 242, 242);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  padding: 0 20px;
+}
+
+.navbar .links {
+  font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 765px) {
+  .navbar a {
+    padding: 0 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box {
+  /* box-sizing: border-box; */
+  flex: 1 1 20%;
+  height: 200px;
+  background-color: darkolivegreen;
+  border: 2px solid papayawhip;
+}
+
+.box:nth-of-type(2n) {
+  background-color: rgb(58, 67, 44);
+}
+
+@media only screen and (max-width: 765px) {
+  .box {
+    flex: 1 1 31.33%;
+  }
+}
+@media only screen and (max-width: 510px) {
+  .box {
+    flex: 1 1 48%;
+  }
+}

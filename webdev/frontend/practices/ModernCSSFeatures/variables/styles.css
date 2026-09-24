@@ -1,0 +1,45 @@
+:root {
+  --page-color: rgb(249, 244, 237);
+  --brand-color: olive;
+  --text-color: rgb(103, 104, 100);
+
+  /* can define spacing too */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+
+  --border-size-sm: 2px;
+}
+
+body {
+  background-color: var(--page-color);
+  margin: 15%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: var(--brand-color);
+}
+
+p {
+  color: var(--text-color);
+}
+
+.btn {
+  background-color: inherit;
+  color: var(--brand-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--border-size-sm) solid var(--brand-color);
+}
+
+@media only screen and (max-width: 780px) {
+  :root {
+    --brand-color: maroon;
+    --text-color: rgb(114, 45, 45);
+  }
+}

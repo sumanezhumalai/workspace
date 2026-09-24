@@ -1,0 +1,280 @@
+/* ============================================
+   FLEXBOX LAYOUT & TIMELINE PRACTICE
+   ============================================
+   
+   Topics Covered:
+   1. Flexbox properties (justify-content, align-items, align-self)
+   2. Flex-direction and layout patterns
+   3. Navbar creation with flexbox
+   4. Timeline layout with alternating content
+   5. Order property for visual reordering
+   6. Font imports and typography
+   
+   Key Concepts:
+   - Flexbox is a 1-dimensional layout system (row OR column)
+   - justify-content aligns along main axis
+   - align-items aligns along cross axis
+   - align-self overrides align-items for individual items
+   - order changes visual order without changing HTML structure
+   ============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: papayawhip;
+}
+
+/* ============================================
+   TYPOGRAPHY STYLES
+   ============================================ */
+
+h1 {
+  text-align: center;
+  font-family: serif;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 6rem;
+}
+
+/* ============================================
+   TIMELINE VERTICAL LINE
+   ============================================
+   - position: absolute with left: 50% centers horizontally
+   - transform: translateX(-50%) perfectly centers the 4px line
+   - top: 0 and bottom: 0 stretch full height
+   - z-index: 1 ensures content appears above the line
+   ============================================ */
+
+.hr {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: black;
+  opacity: 0.6;
+  border: none;
+  margin: 0;
+  transform: translateX(-50%);
+  z-index: 1; /* Keeps line behind boxes */
+}
+
+/* ============================================
+   TIMELINE WRAPPER
+   ============================================ */
+
+.timeline {
+  position: relative;
+}
+
+/* ============================================
+   FLEX CONTAINER - VERTICAL LAYOUT
+   ============================================
+   Key Flexbox Properties:
+   - display: flex - enables flexbox on this container
+   - flex-direction: column - stacks children vertically
+   - justify-content: space-around - distributes space between items
+   
+   Commented Properties (for future reference):
+   - flex-wrap: wrap - allows items to wrap to new line
+   - align-items: flex-end - aligns items to the end of cross axis
+   - align-content: center - aligns wrapped lines (multi-line only)
+   ============================================ */
+
+.container {
+  /* border: 4px solid black; */
+  width: 1200px;
+  margin: 40px auto;
+  padding: 100px;
+
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: space-around;
+  /* align-items: flex-end; */
+  /* align-content: enter; */
+}
+
+/* ============================================
+   FLEXBOX ITEM PROPERTIES
+   ============================================
+   align-self: Overrides parent's align-items for this item
+   - flex-start: aligns to start of cross axis (left)
+   - flex-end: aligns to end of cross axis (right)
+   - center: centers on cross axis
+   
+   order: Changes visual order without changing HTML
+   - Default is 0
+   - Negative values move items earlier (-1 comes first)
+   - Positive values move items later
+   
+   Note: .special items appear on right side of timeline
+   ============================================ */
+
+.special {
+  align-self: flex-end;
+  order: 0;
+}
+
+/* Uncomment to reorder specific item to top */
+/* #veryspecial {
+  order: -1;
+} */
+
+/* ============================================
+   BOX STYLES (for demonstration purposes)
+   ============================================ */
+
+.box {
+  width: 300px;
+  height: 150px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+/* ============================================
+   NAVBAR - HORIZONTAL FLEXBOX LAYOUT
+   ============================================
+   Classic navbar pattern using flexbox:
+   - display: flex - enables flexbox (default direction: row)
+   - justify-content: space-between - pushes items to edges
+   - align-items: center - vertically centers items
+   
+   This creates a header with content at left and right edges
+   ============================================ */
+
+.navbar {
+  background-color: olive;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ============================================
+   NAVBAR LINKS & SECTIONS
+   ============================================ */
+
+.navbar a {
+  margin: 10px 25px;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: 2px underline white;
+  text-underline-offset: 3px;
+}
+
+/* Navbar sections - nested flexbox containers */
+.navbar-left {
+  background-color: rgb(149, 149, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-right {
+  background-color: rgb(149, 149, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#title {
+  /* margin-right: auto; */ /* Auto margin can push items in flexbox */
+  text-decoration: none;
+}
+
+/* ============================================
+   TIMELINE CONTENT BOXES
+   ============================================
+   Flexbox pattern for alternating timeline items:
+   - flex-direction: column stacks content vertically
+   - align-items: flex-end aligns to right (default)
+   - text-align: right for text alignment
+   
+   .timeline-content-right class flips alignment to left side
+   This creates the zigzag timeline pattern
+   ============================================ */
+
+.timeline-content {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.timeline-content-right{
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ============================================
+   TIMELINE TYPOGRAPHY
+   ============================================ */
+
+.timeline {
+  font-family: Cormorant, monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.timeline-content h3 {
+  font-size: 25px;
+}
+
+.timeline-content p {
+  font-size: 15px;
+  width: 400px;
+}
+
+/* ============================================
+   TIMELINE SPECIFIC STYLES
+   ============================================
+   Custom classes for highlighting and styling
+   timeline content sections
+   ============================================ */
+
+.timeline-highlight {
+  font-weight: 800;
+  text-shadow:
+    #af1620 0px 1px,
+    #ffff4f 0px 2px,
+    #0032cc 0px -1px,
+    #70a39f 0px -2px;
+}
+
+.timeline-institute {
+  font-style: italic;
+  font-size: 20px;
+}
+
+.timeline-mentions {
+  font-size: 68px;
+}
+
+.timeline-duration {
+  font-style: italic;
+  word-spacing: -4px;
+  text-transform: uppercase;
+}
+
+.session-title {
+  font-family: Montserrat, sans-serif, Arial;
+  font-size: 30px;
+  font-style: italic;
+  opacity: 60%;
+}
+
+.container li {
+  list-style: none;
+}

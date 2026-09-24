@@ -1,0 +1,46 @@
+body {
+  margin: 15%;
+
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+
+h1 {
+  color: gray;
+  font-style: italic;
+}
+
+.box1 {
+  background-color: tan;
+  width: 30%;
+  height: 300px;
+  float: left;
+
+  margin-right: 10px;
+}
+.box2 {
+  background-color: #4e85a6;
+  width: calc(70% - 10px);
+  height: 300px;
+  float: right;
+
+  position: relative;
+}
+
+.tinybox {
+  background-color: rgb(4, 86, 86);
+
+  height: 100px;
+  width: 120px;
+
+  position: absolute;
+  /* top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -60px; */
+
+  top: calc(50% - 50px);
+  left: calc(50% - 60px);
+}
