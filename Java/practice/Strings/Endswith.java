@@ -35,6 +35,6 @@ static boolean endsWith(String s,String w){
         String w= in.next();
        System.out.println(endsWith(s,w));
    // System.out.println(c[0]);
-
+        in.close();
     }
 }

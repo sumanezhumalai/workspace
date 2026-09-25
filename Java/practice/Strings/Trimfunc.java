@@ -41,7 +41,7 @@ class Trimfunc{
         String s = in.next();
 
         System.out.println(trimFunc(s));
-
+        in.close();
     }
 }
 

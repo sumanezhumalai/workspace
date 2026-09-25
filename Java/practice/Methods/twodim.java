@@ -22,5 +22,6 @@ class twodim{
             System.out.print("\n");
             } 
         }
+        in.close();
     }
 }

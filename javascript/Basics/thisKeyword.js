@@ -1,12 +1,22 @@
-// 'use strict'; //already using 'use strict' by default
+// ============================================================
+//  THIS KEYWORD — Context, Arrow Functions, Arguments
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • 'this' in METHOD: refers to the object calling the method
+// • 'this' in REGULAR FUNCTION (strict mode): undefined
+// • 'this' in ARROW FUNCTION: lexically bound to parent scope (inherits from outer context)
+// • Arrow functions DON'T have their own 'this' — use for callbacks inside methods
+// • Never use arrow functions as object methods if you need 'this'
+// • 'arguments' keyword: available in regular functions, NOT in arrow functions
+// • 'use strict' makes 'this' undefined in global context (not window object)
+// ============================================================
+
+// 'use strict'; // Already using 'use strict' by default
 
 export function run() {
-  // console.log(this); //already using 'use strict' by default
-  // so wont diaply the window object
+  // console.log(this); // In strict mode: undefined (not window object)
 
-  //like an array (saying just for refrenece) but with property and {}
-
-  //alex
+  // ========== Object Examples ==========
   const alex = {
     firstName: "Alex",
     lastName: "Rivera",
@@ -15,11 +25,10 @@ export function run() {
     skills: ["Python", "TypeScript", "React", "Node.js"],
 
     displayThis: function () {
-      console.log(this);
+      console.log(this); // 'this' = alex object (caller)
     },
   };
 
-  //suman
   const suman = {
     firstName: "Suman",
     lastName: "Ezhuamalai",
@@ -28,7 +37,7 @@ export function run() {
     skills: ["Java", "JavaScript", "HTML", "CSS"],
 
     displayThis: function () {
-      console.log(this);
+      console.log(this); // 'this' = suman object (caller)
     },
 
     calcAge: function () {
@@ -42,54 +51,56 @@ export function run() {
         age--;
       }
 
-      // .this Problem in Regular function
+      // ========== THIS Problem in Regular Function ==========
       //   const isGenz = function () {
-      //     console.log(this); //undefined  ,points to gobal scope (which is 'window' object)
-      // window is not accessibel 'use strict' - here 'use strict'used by default . so its value is 'undefined' / error
+      //     console.log(this); // undefined — regular function in strict mode
+      //     // In non-strict mode, this would be 'window' object
+      //     // In strict mode, 'this' is undefined
 
-      // if (this.dob.getFullYear() >= 2001 && this.dob.getFullYear() <= 2016) {//error , since .this is 'undefined', cannot access 'dob'
-      //   console.log("You are a GenZ");
+      // if (this.dob.getFullYear() >= 2001 && this.dob.getFullYear() <= 2016) {
+      //   console.log("You are a GenZ"); // ERROR: cannot access 'dob' of undefined
       // }
       //   };
 
-      //solution - Arrow function
+      // ========== Solution: Arrow Function ==========
+      // Arrow functions inherit 'this' from surrounding scope (lexical this)
       const isGenz = () => {
-        console.log(this); // since arrrow function selects the surrounding parent scope (one level down in stack).
-        //  here , suman is selected
+        console.log(this); // Arrow function inherits 'this' from calcAge method
+        // Here, 'this' = suman object (one level up in scope chain)
 
         if (this.dob.getFullYear() >= 2001 && this.dob.getFullYear() <= 2016) {
           console.log("You are a GenZ");
         }
       };
 
-      this.age = age;
+      this.age = age; // Cache calculated age as property
 
-      isGenz(); //cannot use .this , coz suman has no function named isGenz
+      isGenz(); // Call inner function (uses parent 'this')
 
       return age;
     },
 
+    // ========== Arrow Function as Method (WRONG) ==========
     greet: () => {
-      // this. will not work in arrow function
-      console.log(this); // undefined
-      console.log(`Hi!, I'm ${this.firstName}`); //will throw error
+      // Arrow functions DON'T have their own 'this'
+      console.log(this); // undefined (inherits from global, which is undefined in strict mode)
+      console.log(`Hi!, I'm ${this.firstName}`); // ERROR — cannot read property of undefined
     },
   };
 
   console.log(suman.calcAge());
-  //   suman.greet();  // this. will not work in arrow function , points to gobal scope (which is 'window' object)
-  // window is not accessibel 'use strict' - here 'use strict'used by default . so its value is 'undefined' / error
+  //   suman.greet();  // Will throw error — arrow function method has no proper 'this'
 
-  //   console.log(alex.calcAge());
+  //   console.log(alex.calcAge()); // Would error — alex has no calcAge method
 
-  //   console.log(suman.calcAge === alex.calcAge); // we can call calcAge with alex ,
-  //  but alex has no calcAge function  . so it returns undefined instead of error . so 'False'
+  //   console.log(suman.calcAge === alex.calcAge); // false — alex has no calcAge property
   //   suman.displayThis();
   //   alex.displayThis();
 
-  //argumnet keyword
+  // ========== Arguments Keyword ==========
+  // Available ONLY in regular functions (not arrow functions)
   const raisePower = function (a, b) {
-    console.log(arguments);
+    console.log(arguments); // Array-like object containing all passed arguments
     return a ** b;
   };
 

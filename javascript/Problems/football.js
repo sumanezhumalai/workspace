@@ -1,3 +1,16 @@
+// ============================================================
+//  CODING CHALLENGES: Football Betting App
+// ============================================================
+// PRACTICE CONCEPTS:
+// • Array/object destructuring
+// • Spread operator and rest parameters
+// • Short-circuiting with && and ||
+// • for...of loops with Object.entries()
+// • Set for unique values
+// • Map methods: delete(), size, iteration
+// • Logical operators for conditional assignment
+// ============================================================
+
 ///////////////////////////////////////
 // Coding Challenge #1
 

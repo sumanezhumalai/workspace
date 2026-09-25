@@ -1,7 +1,21 @@
 "use strict";
 
+// ============================================================
+//  OBJECTS — Creation, Access, Methods, Dynamic Properties
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • Objects store key-value pairs (properties can be any type)
+// • Two access patterns: dot notation (obj.prop) and bracket notation (obj['prop'])
+// • Bracket notation allows computed/dynamic keys and expressions
+// • Dot notation is cleaner but requires valid identifiers
+// • Methods are functions stored as object properties
+// • 'this' keyword refers to the object calling the method
+// • Objects are mutable — can add/modify properties anytime
+// ============================================================
+
 export function run() {
-  //like an array (saying just for refrenece) but with property and {}
+  // ========== Object Creation ==========
+  // Objects use {} with key-value pairs (properties & methods)
   const suman = {
     firstName: "Suman",
     lastName: "Ezhuamalai",
@@ -19,27 +33,31 @@ export function run() {
       ) {
         age--;
       }
-      this.age = age; // here we are creating an age property so thay we dony need to calculate everytime
+      this.age = age; // Creating property dynamically to cache calculated value
 
       return age;
     },
-  }; // need not worry about order , it auto arranges as per alphabetic order
+  }; // Properties auto-arrange alphabetically in console display
 
-  //Access and Formats
+  // ========== Access Patterns ==========
   console.log(suman);
   console.log(suman.calcAge());
-  console.log(suman.skills[0]); //here skill is an array so we could access it elements with index
-  console.log(suman.phoneNumber);
-  console.log(suman["age"]); // -> can also take expression that results in property string as below
+  console.log(suman.skills[0]); // Nested array access
+  console.log(suman.phoneNumber); // Dot notation
+
+  // ========== Bracket Notation (Dynamic Access) ==========
+  console.log(suman["age"]); // Bracket notation — allows expressions
 
   const Namekey = "Name";
-  console.log(suman["first" + Namekey]); //expressions like arr[arr.length - 1]
-  console.log(suman["last" + Namekey]);
+  console.log(suman["first" + Namekey]); // Expression evaluates to "firstName"
+  console.log(suman["last" + Namekey]); // Expression evaluates to "lastName"
 
   // const query = prompt("what property do you wanna get for Suman ? ");
-  // console.log(suman[query]) // here suman.query will not work , throws error!
+  // console.log(suman[query]) // Bracket notation required for dynamic keys
+  // NOTE: suman.query would look for literal property "query" — throws error!
 
-  //can introduce or append new Fields
+  // ========== Adding New Properties ==========
+  // Objects are mutable — can add properties anytime
   suman.isEmployed = false;
   suman["location"] = "Puducherry";
   console.log(suman);

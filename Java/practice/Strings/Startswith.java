@@ -34,6 +34,6 @@ static boolean startsWith(String s,String w){
         String w= in.next();
        System.out.println(startsWith(s,w));
    // System.out.println(c[0]);
-
+        in.close();
     }
 }

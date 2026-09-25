@@ -34,5 +34,6 @@ class jaggthree{
                 }System.out.println();
             } System.out.println();
         }
+        in.close();
     }
 }

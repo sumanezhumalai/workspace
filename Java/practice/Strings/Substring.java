@@ -29,6 +29,6 @@ static String subString(String s,int c,int w){
         int w= in.nextInt();
        System.out.println(subString(s,c,w));
    // System.out.println(c[0]);
-
+        in.close();
     }
 }

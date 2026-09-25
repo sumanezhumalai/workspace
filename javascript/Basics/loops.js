@@ -1,5 +1,17 @@
 "use strict";
 
+// ============================================================
+//  LOOPS — for, for...of, forEach, while
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • for loop: traditional, full control (init, condition, increment)
+// • for...of: iterates over ITERABLE values (arrays, strings, sets, maps)
+// • forEach(): array method, cannot break/continue
+// • while: runs while condition is true, useful for unknown iterations
+// • continue: skip current iteration; break: exit loop entirely
+// • .entries() returns [index, value] pairs for iteration
+// ============================================================
+
 export function run() {
   const details = [
     "Suman",
@@ -12,8 +24,8 @@ export function run() {
     ["Java", "JavaScript", "HTML", "CSS"],
   ];
 
-  //for loop
-  // for (let rep = 1; rep <= 10; rep++) { // the variable must be declared as 'let'
+  // ========== Traditional for Loop ==========
+  // for (let rep = 1; rep <= 10; rep++) { // variable must be 'let' (block-scoped)
   //     console.log(`FOR loop , currently at ${rep}`)
   // }
 
@@ -25,22 +37,27 @@ export function run() {
   //     types.push(typeof details[i])
   // }
 
-  //for of loop
-  for (const val of details) console.log(val); //cannnot access index in for-of loop
-  //workaround
-  for (const val of details.entries()) console.log(val); //this will provide key-pair (index,value)
-  //destructure the val for ease of use
+  // ========== for...of Loop ==========
+  // Modern ES6 syntax for iterating over iterables
+  for (const val of details) console.log(val); // Simple value iteration — NO index access
+
+  // Workaround for index access using .entries()
+  for (const val of details.entries()) console.log(val); // Returns [index, value] pairs
+
+  // Destructure for cleaner code
   for (const [index, value] of details.entries()) {
     console.log(`${index + 1}: ${value}`);
   }
 
-  // For Each
+  // ========== forEach Method ==========
+  // Array method — cannot use break/continue
   // types.forEach(element => {
   //     console.log(element);
   //     console.log();
   // });
 
-  //While Loop
+  // ========== while Loop ==========
+  // Runs as long as condition is true — useful for unknown iteration count
   // let i = 1;
 
   // while (i <= 10) {

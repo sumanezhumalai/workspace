@@ -26,6 +26,6 @@ class spacecount {
         String s= in.nextLine();
        System.out.println(spacecountn(s));
 
-
+        in.close();
     }
 }

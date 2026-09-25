@@ -27,5 +27,6 @@ class threedim{
                 }
             } 
         }
+        in.close();
     }
 }

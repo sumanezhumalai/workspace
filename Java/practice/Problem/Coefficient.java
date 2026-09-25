@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class Coefficient {
@@ -100,6 +99,7 @@ public class Coefficient {
 
         if (p >= m) {
             System.out.println(0);
+            sc.close();
             return;
         }
 
@@ -117,5 +117,6 @@ public class Coefficient {
 
 
         System.out.println(minCoeff);
+        sc.close();
     }
 }

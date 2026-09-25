@@ -1,3 +1,16 @@
+// ============================================================
+//  OPTIONAL CHAINING (?.) — Safe Property Access (ES2020)
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • Optional chaining: ?. safely accesses nested properties
+// • Returns undefined if property doesn't exist (instead of throwing error)
+// • Works with objects, arrays, and function calls
+// • Combine with nullish coalescing (??) for default values
+// • Syntax: obj?.prop, obj?.[expr], obj?.method(), arr?.[index]
+// • Short-circuits: stops evaluation if left side is nullish
+// • Replaces multiple nested if checks or && chains
+// ============================================================
+
 export function run() {
   const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
@@ -35,23 +48,33 @@ export function run() {
     },
   };
 
-  //the Problem
+  // ========== The Problem (Without Optional Chaining) ==========
+  // Need multiple existence checks to avoid errors
   if (restaurant.openingHours && restaurant.openingHours.mon) {
-    //multi check
-    console.log(restaurant.openingHours.mon.open); //here multiple chained objects must pass exot check for predicatble coding
+    console.log(restaurant.openingHours.mon.open); // Safe but verbose
   }
 
-  //with Optional Chaining
-  console.log(restaurant.openingHours?.mon?.open);
+  // ========== With Optional Chaining ==========
+  // Safely access nested properties — returns undefined if any part is nullish
+  console.log(restaurant.openingHours?.mon?.open); // undefined (no error)
 
+  // ========== Practical Use Case ==========
+  // Loop through weekdays and safely check opening hours
   for (const day of weekdays) {
+    // Combine optional chaining with nullish coalescing and OR operator
     console.log(
-      `Day: ${day} ->  ${(restaurant.openingHours?.[day]?.open ?? "IS Open") || "Is not Open"}`, //classic exmple of using Optional changing with Nullish Coalescing operator
+      `Day: ${day} ->  ${(restaurant.openingHours?.[day]?.open ?? "IS Open") || "Is not Open"}`,
     );
+    // ?.[day] — optional chaining with computed property
+    // ?? — nullish coalescing for default value
+    // || — final fallback for truthy check
   }
 
-  //we can check the excitence of function too before calling 
-  console.log(restaurant?.order?.(0,1) ?? "couldn't order");
-  
+  // ========== Optional Chaining with Methods ==========
+  // Check if method exists before calling
+  console.log(restaurant?.order?.(0, 1) ?? "couldn't order");
+  // First ?. checks restaurant exists
+  // Second ?. checks order method exists
+  // If either is nullish, returns undefined, then ?? provides fallback
 }
 run();

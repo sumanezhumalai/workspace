@@ -24,6 +24,6 @@ class Tochararray {
         String s= in.nextLine();
        System.out.println(toCharArray(s));
    // System.out.println(c[0]);
-
+        in.close();
     }
 }

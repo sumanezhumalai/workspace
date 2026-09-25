@@ -1,5 +1,15 @@
 "use strict";
 
+// ============================================================
+//  PROBLEM: Temperature Converter (Celsius to Kelvin)
+// ============================================================
+// PRACTICE CONCEPTS:
+// • User input with prompt()
+// • Type conversion with Number()
+// • Object creation and manipulation
+// • Console.table() for formatted output
+// ============================================================
+
 export function run() {
   const convertToKelvin = function () {
     const measurement = {

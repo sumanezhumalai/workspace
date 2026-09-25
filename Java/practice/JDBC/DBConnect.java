@@ -37,7 +37,7 @@ class DBConnect{
         sp.setString(4, city);
         sp.setInt(5, score);
         
-        int row = sp.executeUpdate();
+        sp.executeUpdate();
 
         //System.out.println("Inserted " + row);
                 
@@ -52,7 +52,7 @@ class DBConnect{
         sp.setInt(1, newScore);
         sp.setInt(2, id);
 
-        int row = sp.executeUpdate();
+        sp.executeUpdate();
     
     }
 

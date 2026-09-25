@@ -1,4 +1,16 @@
 "use strict";
+
+// ============================================================
+//  PROBLEM: Temperature Amplitude Calculator & Forecast
+// ============================================================
+// PRACTICE CONCEPTS:
+// • Array iteration and filtering invalid data
+// • Math.max/min with infinity for comparisons
+// • Array concatenation with concat()
+// • Type checking with typeof and Number.isNaN()
+// • Debugging with debugger keyword
+// ============================================================
+
 export function run() {
   function calcAmplitude(temps) {
     let min = Infinity;

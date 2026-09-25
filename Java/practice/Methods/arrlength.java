@@ -17,5 +17,6 @@ class arrlength{
             System.out.print("\n");
             
         }
+        in.close();
     }
 }

@@ -15,7 +15,6 @@ static char[] Replace(String s,char c, String w){
 
             char[] arr=s.toCharArray();
 
-            int count=0;
             for(int i=0 ; i<size ;i++){
 
                arr[st+i]=w.charAt(i);
@@ -34,6 +33,6 @@ static char[] Replace(String s,char c, String w){
         String w= in.next();
        System.out.println(Replace(s,c,w));
    // System.out.println(c[0]);
-
+        in.close();
     }
 }

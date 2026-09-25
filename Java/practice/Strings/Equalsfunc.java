@@ -38,6 +38,6 @@ class Equalsfunc {
         String w= in.next();
        System.out.println(equalsTo(s,w));
    // System.out.println(c[0]);
-
+        in.close();
     }
 }

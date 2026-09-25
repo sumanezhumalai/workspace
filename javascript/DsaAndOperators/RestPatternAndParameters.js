@@ -1,4 +1,19 @@
+// ============================================================
+//  REST PATTERN & PARAMETERS — Collecting into Arrays/Objects
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • REST looks like SPREAD (...) but does the OPPOSITE
+// • SPREAD: expands (on RIGHT of =) → ...arr becomes 1, 2, 3
+// • REST: collects (on LEFT of =) → [a, ...rest] collects remaining into array
+// • REST must be LAST in destructuring — [a, ...rest, b] is invalid
+// • Skipped elements are NOT collected — [a, , ...rest] skips 2nd element
+// • Rest parameters allow unlimited function arguments: function(...args)
+// • Rest parameters do NOT support default values directly
+// • Only ONE rest element allowed per destructure
+// ============================================================
+
 export function run() {
+  // ========== Sample Data ==========
   const restaurant = {
     name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -43,7 +58,8 @@ export function run() {
     },
 
     orderPizza: function (mainIng, ...otherIng) {
-      //Rest parameter does not support a default initializer / initial valuse assignment
+      // Rest parameter collects all remaining arguments into array
+      // Rest parameters do NOT support default initializers — workaround inside function
       //   otherIng = otherIng.length === 0 ? ["none"] : otherIng;
       console.log(
         `Pizza Type: ${mainIng}, AddOns: ${(otherIng.length === 0 ? ["none"] : otherIng).join(", ")} `,
@@ -51,24 +67,29 @@ export function run() {
     },
   };
 
-  // SPREAD, because on RIGHT side of =
-  const arr = [1, 2, ...[3, 4]]; //spread - distributes the array
+  // ========== SPREAD vs REST ==========
+  // SPREAD — on RIGHT side of = (expands)
+  const arr = [1, 2, ...[3, 4]]; // Spread distributes array elements
   console.log(arr);
 
-  // REST, because on LEFT side of =
+  // REST — on LEFT side of = (collects)
+  const [a, b, ...others] = [1, 2, 3, 4, 5]; // Rest collects remaining elements
+  console.log(a, b, others); // 1, 2, [3, 4, 5]
 
-  const [a, b, ...others] = [1, 2, 3, 4, 5]; //rest collects unassigned elemets into an array here
-  console.log(a, b, others);
+  // ========== REST Pattern Rules ==========
+  // REST does NOT collect skipped elements — only collects AFTER last assignment
+  const [x, , y, ...rest] = [...restaurant.starterMenu, ...restaurant.mainMenu];
+  console.log(x, y, rest); // Skips 2nd element, collects rest
 
-  //REST does not collect nay skipped elemenet , only the Right leftover elements of last assigned element
-  const [x, , y, ...rest] = [...restaurant.starterMenu, ...restaurant.mainMenu]; //can contain only on Rest Operator while grouping
-  console.log(x, y, rest);
+  // Only ONE rest element allowed per destructure
+  // const [a, ...middle, b] = [1, 2, 3, 4]; // INVALID — rest must be last
 
-  //Rest operations on Object
-  const { sat, ...weekdays } = { ...restaurant.openingHours }; //skip sat obj.property and collect the rest
-  console.log(weekdays);
+  // ========== REST with Objects ==========
+  const { sat, ...weekdays } = { ...restaurant.openingHours }; // Exclude 'sat', collect rest
+  console.log(weekdays); // {thu: {...}, fri: {...}}
 
-  //Rest operations on Functions
+  // ========== REST Parameters in Functions ==========
+  // Variadic functions — accept unlimited arguments
   const add = function (...nums) {
     let sum = 0;
     nums.forEach((e) => {
@@ -77,7 +98,7 @@ export function run() {
     return sum;
   };
 
-  console.log(add(1, 2, 3, 5, 6, 6, 5, 7, 8, 32));
+  console.log(add(1, 2, 3, 5, 6, 6, 5, 7, 8, 32)); // All args collected into 'nums' array
 
   restaurant.orderPizza(
     "chicken",
@@ -86,5 +107,5 @@ export function run() {
     "peanut",
     "Red Saurce",
   );
-  restaurant.orderPizza("pineapples");
+  restaurant.orderPizza("pineapples"); // otherIng will be empty array []
 }

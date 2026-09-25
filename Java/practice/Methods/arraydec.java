@@ -19,5 +19,6 @@ class arraydec{
             System.out.print(a[i]+" ");
 
         }
+        in.close();
     }
 }

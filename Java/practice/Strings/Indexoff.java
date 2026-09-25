@@ -24,7 +24,7 @@ class Indexoff {
         char var =in.next().charAt(0);
 
         System.out.println(indexOff(s,var));
-
+        in.close();
     }
 }
 

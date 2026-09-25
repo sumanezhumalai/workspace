@@ -31,6 +31,6 @@ class Lowertoupper {
         String s= in.nextLine();
        System.out.println(lowerToUpper(s));
 
-
+        in.close();
     }
 }

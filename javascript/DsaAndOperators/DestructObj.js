@@ -1,3 +1,16 @@
+// ============================================================
+//  OBJECT DESTRUCTURING — Unpacking Objects into Variables
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • Destructuring uses property NAMES, not order (unlike arrays)
+// • Rename during destructure: {oldName: newName} = obj
+// • Default values prevent undefined: {prop = defaultVal} = obj
+// • Works with nested objects: {outer: {inner}} = obj
+// • Mutating existing variables requires parentheses: ({a, b} = obj)
+// • Destructure in function parameters for cleaner code
+// • Destructured parameters support default values
+// ============================================================
+
 export function run() {
   const flights =
     "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
@@ -20,7 +33,7 @@ export function run() {
     "garlic",
   ]);
 
-  // Data needed for first part of the section
+  // ========== Sample Data ==========
   const restaurant = {
     name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -47,6 +60,7 @@ export function run() {
       return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     },
 
+    // Destructuring in function parameters — very common pattern
     orderDelivery: function ({
       starterIndex = 1,
       mainIndex = 0,
@@ -59,11 +73,13 @@ export function run() {
     },
   };
 
-  //destructuring objects
+  // ========== Basic Object Destructuring ==========
+  // Extract properties by name (order doesn't matter)
   const { name, openingHours, categories } = restaurant;
   console.log(name, openingHours, categories);
 
-  //retireve in different variable name
+  // ========== Rename Variables ==========
+  // Retrieve property but assign to different variable name
   const {
     name: restaurantName,
     openingHours: timing,
@@ -71,35 +87,39 @@ export function run() {
   } = restaurant;
   console.log(restaurantName, timing, tags);
 
-  //can set default value too
-  const { location = "unknown", Menu = [] } = restaurant; //there is no Menu property up in restaurent Object
+  // ========== Default Values ==========
+  // Set fallback values for non-existent properties
+  const { location = "unknown", Menu = [] } = restaurant; // 'Menu' doesn't exist in restaurant
   console.log(location, Menu);
 
-  //mutating Array
+  // ========== Mutating Existing Variables ==========
   const obj = { a: 1, b: 2, c: 3 };
-  //   let {a,b} = obj; //works
-  //   {a,b} = obj; // error - Uncaught SyntaxError: Unexpected token '='
+  //   let {a,b} = obj; // Works — declaring new variables
+  //   {a,b} = obj; // ERROR: Unexpected token '=' — JS thinks {} is block, not destructure
   let a, b;
-  ({ a, b } = obj); //works
+  ({ a, b } = obj); // Works — parentheses force expression context
 
   console.log(a, b);
 
+  // ========== Nested Object Destructuring ==========
   const {
     fri: { open: o, close: c },
-  } = openingHours;
-  //   console.log(open,close);
+  } = openingHours; // Destructure nested 'fri' object
+  //   console.log(open,close); // Won't work — variables renamed to 'o' and 'c'
   console.log(o, c);
 
-  //destruction can be done at function argument itlsef - go up and checkout the function
+  // ========== Destructuring in Function Parameters ==========
+  // Cleaner API — caller doesn't need to remember parameter order
   restaurant.orderDelivery({
     time: "22:30",
     address: "Via del Sole. 21",
     mainIndex: 2,
     starterIndex: 2,
   });
-    restaurant.orderDelivery({
+  // Function uses default values for missing parameters
+  restaurant.orderDelivery({
     time: "20:00",
     address: "something",
-
+    // starterIndex and mainIndex use defaults (1 and 0)
   });
 }

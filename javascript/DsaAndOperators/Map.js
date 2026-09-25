@@ -1,5 +1,19 @@
+// ============================================================
+//  MAP — Key-Value Pairs with Any Key Type (ES6)
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • Maps store key-value pairs with ANY type as key (unlike objects: string/symbol only)
+// • Keys maintain insertion order
+// • Methods: set(key, val), get(key), has(key), delete(key), clear()
+// • set() returns the map — allows method chaining
+// • Iterate with for...of — entries, keys, values
+// • Convert from object: new Map(Object.entries(obj))
+// • Convert to array: [...map] or Array.from(map)
+// • Size tracked via .size property
+// ============================================================
+
 export function run() {
-  // Data needed for first part of the section
+  // ========== Sample Data ==========
   const restaurant = {
     name: "Classico Italiano",
     location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -8,45 +22,45 @@ export function run() {
     mainMenu: ["Pizza", "Pasta", "Risotto"],
   };
 
-  //   //Map creation
+  // ========== Map Creation & Setting ==========
   //   const rest = new Map();
 
   //   console.log("----- SET ----");
-  //   //Map set()
+  //   // set(key, value) — adds or updates entry
   //   rest.set("name", "Classico Italiano");
-  //   console.log(rest.set("location", "Lisbon, Portugal")); // return the map everytime
+  //   console.log(rest.set("location", "Lisbon, Portugal")); // Returns the map (allows chaining)
 
-  //   //Map chain set()
+  //   // Method chaining with set()
   //   console.log(
   //     rest
-  //       .set(1, ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"]) //can hold multiple keys of different datatype
+  //       .set(1, ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"]) // Keys can be ANY type
   //       .set(2, ["Pizza", "Pasta", "Risotto"])
   //       .set("open", 10)
   //       .set("close", 4)
-  //       .set(true, "the restaurant is OPEN")
+  //       .set(true, "the restaurant is OPEN") // Boolean key
   //       .set(false, "the restaurant is CLOSE"),
   //   );
 
   //   console.log("----- GET ----");
-  //   // Map get()
+  //   // get(key) — retrieves value by key
   //   let time = 12;
-  //   console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+  //   console.log(rest.get(time > rest.get("open") && time < rest.get("close"))); // Boolean key lookup
 
   //   console.log(rest.get("location"));
   //   rest.get(1);
 
   //   console.log("----- HAS ----");
-  //   console.log(rest.has(1));
+  //   console.log(rest.has(1)); // Check if key exists
 
   //   console.log("----- DELETE ----");
-  //   console.log(rest.delete(1)); //return boolean value
-  //   console.log(rest.has(1));
+  //   console.log(rest.delete(1)); // Returns boolean — true if deleted
+  //   console.log(rest.has(1)); // false
 
   //   console.log("----- CLEAR ----");
-  //   rest.clear();
+  //   rest.clear(); // Removes all entries
   //   console.log(rest);
 
-  //use case
+  // ========== Practical Use Case ==========
   const question = new Map([
     [
       "question",
@@ -70,13 +84,13 @@ export function run() {
   }
 
   if (question.get("correct") === answer) {
-    console.log(question.get(true));
+    console.log(question.get(true)); // Boolean key
   } else {
     console.log(question.get(false));
   }
 
-  //convert Object to Map
-  //   const hotel = new Map(Object.entries(restaurant));
+  // ========== Convert Object to Map ==========
+  //   const hotel = new Map(Object.entries(restaurant)); // Object.entries() returns [key, value] pairs
   //   console.log(hotel);
 }
 

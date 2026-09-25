@@ -1,4 +1,15 @@
 "use strict";
+// ============================================================
+//  PROBLEM: String Manipulation Challenges
+// ============================================================
+// PRACTICE CONCEPTS:
+// • String methods: split(), replace(), trim(), toLowerCase()
+// • Regular expressions: /pattern/flags
+// • Array destructuring and iteration
+// • Template literals and string interpolation
+// • padEnd() for formatting
+// ============================================================
+
 // export function run() {
 ///////////////////////////////////////
 // Coding Challenge #4

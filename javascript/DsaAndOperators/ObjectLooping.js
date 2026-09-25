@@ -1,3 +1,16 @@
+// ============================================================
+//  OBJECT LOOPING — Iterating Over Object Properties
+// ============================================================
+// CONCEPTS TO REMEMBER:
+// • Objects are NOT directly iterable (unlike arrays)
+// • Object.keys(obj) — returns array of property names (keys)
+// • Object.values(obj) — returns array of property values
+// • Object.entries(obj) — returns array of [key, value] pairs
+// • Use for...of with Object.entries() for key-value iteration
+// • Destructure in loop: for (const [key, value] of Object.entries(obj))
+// • Only iterates over enumerable own properties (not inherited)
+// ============================================================
+
 export function run() {
   const weekdays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
@@ -35,19 +48,23 @@ export function run() {
     },
   };
 
-  //Object.keys(RealObjectName) -> return the object's properties as an array
+  // ========== Object.keys() — Property Names ==========
+  // Returns array of object's property names (keys)
   const properties = Object.keys(restaurant);
   console.log(properties);
 
-  //Object.values(RealObjectName) -> returns the Object's values as an array (not properties)
+  // ========== Object.values() — Property Values ==========
+  // Returns array of object's values (not keys)
   const values = Object.values(restaurant);
   console.log(values);
 
-  //Object.entries -> returns both the Object's properties and its value as key pair array
+  // ========== Object.entries() — Key-Value Pairs ==========
+  // Returns array of [key, value] pairs — most useful for iteration
   const objectDetail = Object.entries(restaurant);
   console.log("---- Object Entries ----");
   console.log(objectDetail);
 
+  // Iterate over object with destructuring
   for (const [prop, values] of objectDetail) {
     console.log(`Restaurent detail ->  Property: ${prop}, Value: ${values}`);
   }

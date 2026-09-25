@@ -26,6 +26,6 @@ class Uppertolower {
 
     String s = in.nextLine();
     System.out.println(upperToLower(s));
-
+    in.close();
   }
 }

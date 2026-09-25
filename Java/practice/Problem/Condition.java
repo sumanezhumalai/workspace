@@ -15,5 +15,6 @@ class Condition {
                 System.out.println(((num / 2)) + 1 + " , " + ((num / 2) - 1));
             }
         }
+        sc.close();
     }
 }

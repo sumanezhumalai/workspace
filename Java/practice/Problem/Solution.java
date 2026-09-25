@@ -39,6 +39,7 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         System.out.println("Next Prime Palindrome of " + a + " is: " + isPrimePalindrome(a));
+        sc.close();
     }
 }
 
