@@ -37,6 +37,6 @@ public class Final {
         obj1.sound();
 
         A obj2 = new B(); // even refrencing wont affect final 
-        obj1.show();
+        obj2.show();
     }
 }

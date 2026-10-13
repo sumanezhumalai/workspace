@@ -1,35 +1,37 @@
 package Inheritance;
+
 class User {
     private String name;
     private int ID;
     private long phone;
 
-    void setData(String name , int ID , long phone){
-        this.name=name; //this holds the refernceof the object that initialized fot the repective class
-        this.ID=ID;
-        this.phone=phone;
+    void setData(String name, int ID, long phone) {
+        this.name = name; // this holds the refernceof the object that initialized fot the repective class
+        this.ID = ID;
+        this.phone = phone;
     }
 
-    String getName(){
+    String getName() {
         return name;
     }
-    int getID(){
+
+    int getID() {
         return ID;
     }
-    long getPhone(){
+
+    long getPhone() {
         return phone;
     }
 
 }
 
-class This{
-    public static void main(String[] args){
+class This {
+    public static void main(String[] args) {
 
         User a = new User();
 
-        a.setData("Suman",02,123456789);
-        System.out.println(a.getName()+" "+a.getID()+" "+a.getPhone());
-
+        a.setData("Suman", 02, 123456789);
+        System.out.println(a.getName() + " " + a.getID() + " " + a.getPhone());
 
     }
 }

@@ -1,3 +1,5 @@
+package Class;
+
 // Wrapper Classes
 
 // int -> Integer
@@ -13,7 +15,7 @@ public class WrapperClass {
 
 		// Integer num1=new Integer(num); //boxing
 		Integer num1 = num; // autoboxing
-
+ 
 		// int num2=num1.intValue(); // unboxing
 		int num2 = num1; // auto-unboxing
 

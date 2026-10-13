@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- IoC container config. Each <bean> = 1 object managed by Spring. -->
+<!-- id = bean name for getBean("..."), class = fully-qualified class to instantiate. -->
+<!-- scope: singleton (default, 1 shared instance, eager) | prototype (new instance per getBean, lazy). -->
+<bean id="user" class="com.sumanezhumalai.entity.User">
+    <!-- Setter injection: Spring calls setAge(22), setName("Suman") after no-arg construction. -->
+    <!-- name = property (setter minus set, lowercased first letter), value = literal, ref = another bean. -->
+    <property name="age" value="22" />
+    <property name="name" value="Suman" />
+    <property name="device" ref="device" />
+</bean>
+
+<!-- Constructor injection: args matched by index (always works). -->
+<!-- name= needs -parameters compiler flag; index/type are safe without it. -->
+<bean id="user3" class="com.sumanezhumalai.entity.User" >
+    <constructor-arg index="0" value="24" />
+    <constructor-arg index="1" value="Sakthi" />
+    <constructor-arg index="2" ref="device" /> <!-- explicit ref (you name the bean) — NOT autowiring. -->
+</bean>
+
+<!-- Autowiring: Spring auto-matches bean references, no explicit ref needed. -->
+<!-- byType = match by property type (needs exactly 1 bean of that type). -->
+<!-- byName = match bean id against property name. Primitives still need <property value>. -->
+<bean id="userAuto" class="com.sumanezhumalai.entity.User" autowire="byType">
+    <property name="age" value="30" />
+    <property name="name" value="Auto" />
+</bean>
+
+<!-- byName: bean id "device" auto-matches property "device". Rename either and it breaks. -->
+<bean id="userByName" class="com.sumanezhumalai.entity.User" autowire="byName">
+    <property name="age" value="40" />
+    <property name="name" value="ByName" />
+</bean>
+
+<!-- Inner bean: defined inside <property>, has no id — usable only by "userInner". -->
+<!-- Lives/dies with the outer bean; getBean on it is impossible. -->
+<bean id="userInner" class="com.sumanezhumalai.entity.User">
+    <property name="age" value="50" />
+    <property name="name" value="Inner" />
+    <property name="device">
+        <bean class="com.sumanezhumalai.entity.Device">
+            <property name="name" value="InnerPad" />
+        </bean>
+    </property>
+</bean>
+
+<!-- Primary: 2+ beans of type Device; byType autowiring picks the primary one. -->
+<!-- Without primary="true", userAuto would fail (ambiguous match). -->
+<bean id="device" class="com.sumanezhumalai.entity.Device" primary="true">
+    <property name="name" value="ThinkPad" />
+</bean>
+<!-- Lazy: created on first getBean, not at startup. Default is eager (lazy-init="false"). -->
+<bean id="backupDevice" class="com.sumanezhumalai.entity.Device" lazy-init="true">
+    <property name="name" value="Backup" />
+</bean>
+</beans>

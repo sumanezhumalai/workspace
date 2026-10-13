@@ -40,11 +40,12 @@ class Final {
         Account A = new Account();
 
         final String bankBeaurueName = "RBI";
-        // bankBeaurueName = "SBI"; // throws error "The final local variable bankBeaurueName cannot be assigned. It
-                                 // must be blank and not using a compound assignment"
+        // bankBeaurueName = "SBI"; // throws error "The final local variable
+        // bankBeaurueName cannot be assigned. It
+        // must be blank and not using a compound assignment"
 
         System.out.println("Order by : " + bankBeaurueName);
         // A.setBalance(10000);
-        // System.out.println(A.getBalance());
+        System.out.println(A.getBalance());
     }
 }
