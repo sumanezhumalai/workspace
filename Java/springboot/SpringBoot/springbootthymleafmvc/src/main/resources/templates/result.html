@@ -1,0 +1,15 @@
+<html xmlns="th='http://www.thymeleaf.org">
+<head>
+    <title>Spring JSP Project</title>
+    <link href="result.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="resultClass">
+    <!-- <h2>Result is : <%= session.getAttribute("result") %> </h2> -->
+    <h1 th:text="${course}">Result - Practice ${course}</h1>
+    <h2 th:text="${result}">Addition is : ${result}</h2> <!--  jstl way -->
+    <h2 th:text="${user}">User is : ${user}</h2>
+    </div>
+</body>
+</html>

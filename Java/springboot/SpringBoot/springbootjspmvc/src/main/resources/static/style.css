@@ -1,0 +1,71 @@
+  body {
+      margin: 5% 15%;
+      background-color: antiquewhite;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center
+  }
+
+  h1 {
+    display: inline-block;
+    font-style: italic;
+    font-weight: 700;
+  }
+  
+  form {
+    margin: 15px;
+    padding: 10px;
+    background-color: rgba(165, 42, 42, 0.285);
+    border-radius: 20px;
+    font: inherit;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+/* 1. Base styles for the submit button */
+input[type="submit"] {
+  /* Remove default browser styles */
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+
+  /* Background and Text colors */
+  color: #2b2929;
+
+  /* Typography */
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  /* Sizing and Shape */
+  padding: 8px 18px;
+  border-radius: 4px;
+  width: auto;
+  /* Change to 100% for a full-width block button */
+
+  /* Interactive cues */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* 2. Hover state (when a user mouses over the button) */
+input[type="submit"]:hover {
+  background-color: rgba(88, 3, 3, 0.533);
+  color: white;
+}
+
+/* 3. Focus state (vital for keyboard navigation / accessibility) */
+input[type="submit"]:focus {
+  outline: 3px solid #9fcdff;
+  outline-offset: 2px;
+}
+
+/* 4. Active state (when the button is being clicked) */
+input[type="submit"]:active {
+  transform: scale(0.98);
+  /* Provides a satisfying "pressed" effect */
+}
+  

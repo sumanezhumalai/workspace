@@ -1,0 +1,35 @@
+<%@page language="java" %>
+
+<html>
+    <head>
+        <title>Spring JSP Project</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Hello World!!!</h1>
+        <section class="addUser">
+            <form action="addUser" class="add">
+                <fieldset>
+                    <legend>User Register Form</legend>
+                    <label for="id">Enter ID : </label>
+                    <input type="number" id="id" name="id">
+                    <label for="name">Enter Username : </label>
+                    <input type="text" id="name" name="name">
+                    <input type="submit" value="submit">
+                </fieldset>
+            </form>
+        </section>
+        <section class="addform">
+        <form action="add" class="add">
+            <fieldset>
+            <legend>Addition Form</legend>
+            <label for="num1">Enter 1st Number :  </label>
+            <input type="number" id="num1" name="number1">
+            <label for="name">Enter 1st Number : </label>
+            <input type="number" id="name" name="number2">
+            <input type="submit" value="submit" class="btn">
+        </fieldset>
+        </form>   
+        </section>
+    </body>
+</html>

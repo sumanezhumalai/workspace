@@ -1,0 +1,22 @@
+  body {
+      margin: 15%;
+      background-color: antiquewhite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center
+  }
+
+
+  h2 {
+      display: inline-block;
+      font-style: italic;
+      padding: 65px 100px;
+      border-radius: 8%;
+
+      background-color: rgba(92, 9, 9, 0.423);
+  }
+
+  resultClass {
+    background-color: rgba(77, 38, 38, 0.462);
+  }
